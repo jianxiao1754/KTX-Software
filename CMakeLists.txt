@@ -220,7 +220,7 @@ macro(commom_lib_settings lib write)
     target_compile_definitions(
         ${lib}
     PUBLIC
-        "$<$<CONFIG:Debug>:_DEBUG;DEBUG>"
+        #"$<$<CONFIG:Debug>:_DEBUG;DEBUG>"
     PRIVATE
         LIBKTX
     )
