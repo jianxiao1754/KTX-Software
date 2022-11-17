@@ -644,7 +644,7 @@ add_subdirectory(interface/basisu_c_binding)
 
 list(FIND CMAKE_OSX_ARCHITECTURES "$(ARCHS_STANDARD)" ASTC_BUILD_UNIVERSAL)
 
-if((NOT ${KTX_FORCE_BUILD_UNIVERSAL} AND ${ASTC_BUILD_UNIVERSAL} EQUAL -1)
+if(NOT ${KTX_FORCE_BUILD_UNIVERSAL} AND ${ASTC_BUILD_UNIVERSAL} EQUAL -1)
     if (${ISA_NONE})
         set(ASTC_LIB_NAME astcenc-none-static)
     else()
