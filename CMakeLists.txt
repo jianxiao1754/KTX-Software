@@ -36,6 +36,7 @@ option( KTX_FEATURE_LOADTEST_APPS "Create load tests apps that load and display 
 option( KTX_FEATURE_STATIC_LIBRARY "Create static libraries (shared otherwise)" ${LIB_TYPE_DEFAULT} )
 option( KTX_FEATURE_TESTS "Create unit tests" ON )
 option( KTX_FEATURE_JNI "Create Java bindings for libktx" OFF )
+option( KTX_FORCE_BUILD_UNIVERSAL "Force a Universal macOS build" OFF )
 
 set_target_processor_type(CPU_ARCHITECTURE)
 if(CPU_ARCHITECTURE STREQUAL x86_64 OR CPU_ARCHITECTURE STREQUAL x86)
@@ -643,7 +644,7 @@ add_subdirectory(interface/basisu_c_binding)
 
 list(FIND CMAKE_OSX_ARCHITECTURES "$(ARCHS_STANDARD)" ASTC_BUILD_UNIVERSAL)
 
-if(${ASTC_BUILD_UNIVERSAL} EQUAL -1)
+if((NOT ${KTX_FORCE_BUILD_UNIVERSAL} AND ${ASTC_BUILD_UNIVERSAL} EQUAL -1)
     if (${ISA_NONE})
         set(ASTC_LIB_NAME astcenc-none-static)
     else()
