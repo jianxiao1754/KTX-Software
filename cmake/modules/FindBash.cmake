@@ -56,7 +56,7 @@ find_program (
     bash
 PATHS
     # Additional paths for Windows
-    "C:\\Program Files\\Git\\bin"
+    "D:\\devkits\\Git\\Bin"
 NO_SYSTEM_ENVIRONMENT_PATH
 )
 
